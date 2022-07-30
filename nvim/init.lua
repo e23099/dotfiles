@@ -1,4 +1,9 @@
 -- NOTE: this is for nvim version 0.5+
-require("plugins")
-require("config")
-require("keybinding")
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.colorscheme")
+require("user.cmp")
+require("user.lsp")
+
+
