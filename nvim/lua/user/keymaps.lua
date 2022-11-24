@@ -24,4 +24,9 @@ keymap('n', '<s-k>', 'gt', opts)
 keymap("v", "p", '"_dP', opts)
 
 
+-- NvimTreeToggle
 keymap('n', '<leader>nn', ':NvimTreeToggle<CR>', {})
+
+-- clipboard
+keymap('i', '<S-Insert>', '<C-R>+', opts)
+keymap('v', '<C-Insert>', '"*y', opts)

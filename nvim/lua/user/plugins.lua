@@ -18,8 +18,11 @@ return packer.startup(function()
     'itchyny/lightline.vim',
     config = function() vim.g.lightline = { colorscheme = 'wombat' } end
   }
+  -- language support
+  use 'sheerun/vim-polyglot'
   -- color scheme
-  use 'lunarvim/darkplus.nvim'
+  -- use 'lunarvim/darkplus.nvim'
+  use 'crusoexia/vim-monokai'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -73,12 +76,14 @@ return packer.startup(function()
     end,
   }
 
-
   -- treesitter
   use {
       'nvim-treesitter/nvim-treesitter',
       run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+
+  -- RainbowCsv
+  use 'mechatroner/rainbow_csv'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

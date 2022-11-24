@@ -112,7 +112,7 @@ cmp.setup {
   sources = { -- 會影響 completion 順序
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer" },
+    { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
     { name = "path" },
   },
   confirm_opts = {

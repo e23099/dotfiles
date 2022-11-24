@@ -29,3 +29,11 @@ funcsave vi
 ```
 to write this alias vi to `~/.config/fish/funtions/vi.fish`,
 so that each time we're in fish, this alias is already known by fish.
+
+
+## For windows nvim
+
+put nvim folder under this location:
+```
+:echo stdpath('config')
+```
