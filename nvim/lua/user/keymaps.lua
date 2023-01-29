@@ -30,3 +30,7 @@ keymap('n', '<leader>nn', ':NvimTreeToggle<CR>', {})
 -- clipboard
 keymap('i', '<S-Insert>', '<C-R>+', opts)
 keymap('v', '<C-Insert>', '"*y', opts)
+
+-- encoding
+--- edit current file in big5(cp950) char-set.
+keymap('n', '<leader>big', ":execute ':edit ++enc=cp950 '.expand('%')<CR>", opts)
