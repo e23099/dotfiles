@@ -1,6 +1,6 @@
 -- :help options
 vim.opt.backup = false                          -- creates a backup file
--- vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard (2022-07-30: not working)
+vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard (2022-07-30: not working)
 vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
@@ -36,6 +36,8 @@ vim.opt.guifont = "Fira Code:h12"               -- the font used in graphical ne
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 5
+vim.g.loaded_netrw = 1                          -- nvim-tree 建議設定
+vim.g.loaded_netrwPlugin = 1                    -- nvim-tree 建議設定
 
 vim.opt.shortmess:append "c"
 

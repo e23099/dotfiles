@@ -71,7 +71,14 @@ return packer.startup(function()
               { key = "v", action = "split" },
             }
           }
-        }
+        },
+        tab = {
+          sync = {
+            open = true,
+            close = true,
+            ignore = {},
+          },
+        },
       }
     end,
   }
@@ -79,7 +86,10 @@ return packer.startup(function()
   -- treesitter
   use {
       'nvim-treesitter/nvim-treesitter',
-      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+      run = function() 
+        require('nvim-treesitter.install')
+        .update({ with_sync = true })
+    end,
   }
 
   -- RainbowCsv
