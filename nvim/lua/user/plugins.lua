@@ -14,86 +14,75 @@ end
 
 return packer.startup(function()
   use 'wbthomason/packer.nvim'
-  use {
-    'itchyny/lightline.vim',
-    config = function() vim.g.lightline = { colorscheme = 'wombat' } end
-  }
+  -- use {
+  --   'itchyny/lightline.vim',
+  --   config = function() vim.g.lightline = { colorscheme = 'wombat' } end
+  -- }
   -- language support
-  use 'sheerun/vim-polyglot'
+  -- use 'sheerun/vim-polyglot'
   -- color scheme
   -- use 'lunarvim/darkplus.nvim'
-  use 'crusoexia/vim-monokai'
+  -- use 'crusoexia/vim-monokai'
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp" 
+  -- use "hrsh7th/nvim-cmp" -- The completion plugin
+  -- use "hrsh7th/cmp-buffer" -- buffer completions
+  -- use "hrsh7th/cmp-path" -- path completions
+  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
+  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- use "hrsh7th/cmp-nvim-lsp"
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  -- use "L3MON4D3/LuaSnip" --snippet engine
+  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  -- use "neovim/nvim-lspconfig" -- enable LSP
+  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
   -- tmux support
-  use { 'alexghergh/nvim-tmux-navigation', 
-    config = function()
-      require'nvim-tmux-navigation'.setup {
-        disable_when_zoomed = true, -- defaults to false
-        keybindings = {
-          left = "<C-h>",
-          down = "<C-j>",
-          up = "<C-k>",
-          right = "<C-l>",
-          last_active = "<C-\\>",
-          next = "<C-Space>",
-        }
-      }
-    end
-  }
+  -- use { 'alexghergh/nvim-tmux-navigation', 
+  --   config = function()
+  --     require'nvim-tmux-navigation'.setup {
+  --       disable_when_zoomed = true, -- defaults to false
+  --       keybindings = {
+  --         left = "<C-h>",
+  --         down = "<C-j>",
+  --         up = "<C-k>",
+  --         right = "<C-l>",
+  --         last_active = "<C-\\>",
+  --         next = "<C-Space>",
+  --       }
+  --     }
+  --   end
+  -- }
   -- NvimTree
-  use {
-    'kyazdani42/nvim-tree.lua',
-    tag = 'nightly', -- optional, updated every week. (see issue #1193)
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function() 
-      require("nvim-tree").setup {
-        view = {
-          mappings = {
-            custom_only = false,
-            list = {
-              { key = "t", action = "tabnew" },
-              { key = "v", action = "split" },
-            }
-          }
-        },
-        tab = {
-          sync = {
-            open = true,
-            close = true,
-            ignore = {},
-          },
-        },
-      }
-    end,
-  }
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   tag = 'nightly', -- optional, updated every week. (see issue #1193)
+  --   requires = { 'kyazdani42/nvim-web-devicons' },
+  --   config = function() 
+  --     require("nvim-tree").setup {
+  --       view = {
+  --         mappings = {
+  --           custom_only = false,
+  --           list = {
+  --             { key = "t", action = "tabnew" },
+  --             { key = "v", action = "split" },
+  --           }
+  --         }
+  --       }
+  --     }
+  --   end,
+  -- }
 
   -- treesitter
-  use {
-      'nvim-treesitter/nvim-treesitter',
-      run = function() 
-        require('nvim-treesitter.install')
-        .update({ with_sync = true })
-    end,
-  }
-
+  -- use {
+  --     'nvim-treesitter/nvim-treesitter',
+  --     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  -- }
   -- RainbowCsv
-  use 'mechatroner/rainbow_csv'
+  -- use 'mechatroner/rainbow_csv'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
