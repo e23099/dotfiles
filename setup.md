@@ -1,34 +1,25 @@
 # setting up new environment.
 
 
-## change bash to fish
+## For windows wezterm
 
-```
-$ chsh -s /usr/bin/fish
+wezterm 啟動時讀取 `%USERPROFILE%\.wezterm.lua`。
+用 symlink 把它指到這個 repo 的檔案，改 repo 就即時生效 (需要開發者模式或系統管理員權限)：
+
+```powershell
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.wezterm.lua" -Target "D:\code\dotfiles\wezterm\wezterm.lua"
 ```
 
-## change directory color (for windows WSL)
+設定重點：字型 `FiraCode Nerd Font Mono`、配色 `catppuccin-macchiato`、預設開 powershell 於 `D:/Work`。
 
-1. go to ~/.config/fish
-2. execute `dircolors --print-database >> .dircolors`
-    this will output dircolors to a file called `.dircolors`
-3. edit `config.fish`, add `eval (dircolors -c ~/.config/fish/.dircolors)`
-    this will make fish use the `.dircolors` specified.
-    we can now change colors setting in .dircolors file to change the
-    directory color printed in fish shell.
+### 常用按鍵
 
-## add alias, forexample, make `vi` equals to `nvim` in fish
-
-It's just two lines of shell script. First we type:
-```
-alias vi "nvim"
-```
-to make vi equals "nvim" in current shell. Then we type:
-```
-funcsave vi
-```
-to write this alias vi to `~/.config/fish/funtions/vi.fish`,
-so that each time we're in fish, this alias is already known by fish.
+| 按鍵 | 功能 |
+|---|---|
+| `Alt+1` ~ `Alt+9` | 切換到第 1 ~ 9 個 tab |
+| `Alt+Shift+%` | 水平分割 pane |
+| `Alt+Shift+"` | 垂直分割 pane |
+| `Ctrl+h/j/k/l` | 在 pane 之間移動焦點 |
 
 
 ## For windows nvim
