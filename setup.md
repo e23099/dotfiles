@@ -33,6 +33,12 @@ New-Item -ItemType Junction -Path "$env:LOCALAPPDATA\nvim" -Target "D:\code\dotf
 
 第一次啟動 nvim 會自動下載 lazy.nvim 和兩個外掛，需要網路。
 
+或直接跑腳本，會建 junction (既有設定先備份成 `nvim.bak-<時間>`) 並依 `lazy-lock.json` 裝好外掛：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install-nvim.ps1   # 加 -SkipPlugins 只建 junction
+```
+
 ### 常用按鍵 (leader = 空白鍵)
 
 | 按鍵 | 功能 |
