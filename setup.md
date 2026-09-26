@@ -19,7 +19,7 @@ New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.wezterm.lua" -Target "D
 | `Alt+1` ~ `Alt+9` | 切換到第 1 ~ 9 個 tab |
 | `Alt+Shift+%` | 水平分割 pane |
 | `Alt+Shift+"` | 垂直分割 pane |
-| `Ctrl+h/j/k/l` | 在 pane 之間移動焦點 |
+| `Ctrl+h/j/k/l` | 在 pane 之間移動焦點 (前景是 nvim 時會放行給 nvim 切 split) |
 
 
 ## For windows nvim

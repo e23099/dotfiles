@@ -47,6 +47,16 @@ table.insert(config.keys, {
   action = act.SplitVertical { domain = 'CurrentPaneDomain' },
 })
 
+-- Ctrl+h/j/k/l: 在 WezTerm pane 之間移動焦點。
+-- 但如果目前 pane 前景程式是 (n)vim，就把按鍵原樣送進去，
+-- 讓 nvim 自己用 <C-w>hjkl 在 split 之間切換 (同 tmux 的 is_vim 做法)。
+local function is_vim(pane)
+  local proc = pane:get_foreground_process_name()
+  if not proc then return false end
+  local base = proc:lower():gsub('\\', '/'):match('([^/]+)$') or ''
+  return base:match('^n?vim') ~= nil
+end
+
 for key, direction in pairs {
   h = 'Left',
   j = 'Down',
@@ -56,7 +66,13 @@ for key, direction in pairs {
   table.insert(config.keys, {
     key = key,
     mods = 'CTRL',
-    action = act.ActivatePaneDirection(direction),
+    action = wezterm.action_callback(function(win, pane)
+      if is_vim(pane) then
+        win:perform_action(act.SendKey { key = key, mods = 'CTRL' }, pane)
+      else
+        win:perform_action(act.ActivatePaneDirection(direction), pane)
+      end
+    end),
   })
 end
 
