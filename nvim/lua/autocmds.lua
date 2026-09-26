@@ -1,13 +1,21 @@
 local augroup = vim.api.nvim_create_augroup("user", { clear = true })
 
 -- ── 大檔案保護 ──────────────────────────────────────────────────────
--- 超過 10MB 的檔案 (通常是 log) 關掉語法高亮、折疊、undo 記錄，避免開檔卡死。
+-- 超過 1MB：關掉 undofile。nvim 讀檔時若 undofile 開著，會對整個檔案算一次
+--   SHA-256 拿來比對 undo 檔 (不管 undo 檔存不存在)，15MB 的 log 要多花 ~35ms。
+-- 超過 10MB (通常是 log)：再關掉語法高亮、折疊、undo 記錄，避免開檔卡死。
+local NO_UNDO_FILE = 1 * 1024 * 1024
 local BIG_FILE = 10 * 1024 * 1024
 vim.api.nvim_create_autocmd("BufReadPre", {
   group = augroup,
   callback = function(ev)
     local ok, stat = pcall(vim.uv.fs_stat, ev.match)
-    if not (ok and stat and stat.size > BIG_FILE) then return end
+    if not (ok and stat) then return end
+
+    if stat.size > NO_UNDO_FILE then
+      vim.bo[ev.buf].undofile = false
+    end
+    if stat.size <= BIG_FILE then return end
 
     vim.b[ev.buf].bigfile = true
     vim.bo[ev.buf].swapfile = false
