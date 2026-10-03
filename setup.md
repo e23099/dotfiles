@@ -46,5 +46,8 @@ powershell -ExecutionPolicy Bypass -File .\install-nvim.ps1   # 加 -SkipPlugins
 | `<leader>big` | 以 cp950 (Big5) 重新讀取目前檔案 |
 | `<leader>utf` | 以 utf-8 重新讀取目前檔案 |
 | `<leader>log` | 把目前 buffer 當作 log 上色 (副檔名不是 .log 時用) |
+| `Alt+滾輪` | 左右捲動畫面，一次 5 欄 (Windows Terminal 的 Shift+滾輪送不進 nvim，所以用 Alt) |
+| `Alt+h/l` | 往左 / 往右捲動畫面 5 欄 (沒滑鼠時的 Alt+滾輪) |
+| `Alt+j/k` | 往下 / 往上捲動畫面 3 行 (沒滑鼠時的滾輪) |
 
 開檔時會自動依 utf-8 → cp950 順序偵測編碼，狀態列中間會顯示目前用的編碼。
