@@ -52,3 +52,14 @@ for _, mode in ipairs({ "n", "v", "i" }) do
   map(mode, "<M-ScrollWheelUp>", "<ScrollWheelLeft>", opts)
   map(mode, "<M-ScrollWheelDown>", "<ScrollWheelRight>", opts)
 end
+
+-- Alt+hjkl = 沒滑鼠時的滾輪：捲動畫面，捲動量跟 'mousescroll' 一樣 (左右 5 欄、上下 3 行)。
+local function scroll(keys)
+  return function() vim.cmd.normal({ vim.keycode(keys), bang = true }) end
+end
+for _, mode in ipairs({ "n", "v", "i" }) do
+  map(mode, "<M-h>", scroll("5zh"), opts)
+  map(mode, "<M-l>", scroll("5zl"), opts)
+  map(mode, "<M-j>", scroll("3<C-e>"), opts)
+  map(mode, "<M-k>", scroll("3<C-y>"), opts)
+end
