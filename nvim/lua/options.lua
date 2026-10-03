@@ -35,6 +35,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.smartindent = true
 opt.mouse = "a"
+opt.mousescroll = "ver:3,hor:5" -- Alt+滾輪水平捲動一次 5 欄 (跟 Notepad++ 差不多)
 opt.splitbelow = true
 opt.splitright = true
 opt.ignorecase = true

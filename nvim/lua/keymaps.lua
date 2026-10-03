@@ -44,3 +44,11 @@ end, { desc = "把目前 buffer 當作 log 上色" })
 -- ── 其他 ────────────────────────────────────────────────────────────
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts) -- Esc 清掉搜尋高亮
 map("v", "p", '"_dP', opts)                    -- visual 貼上時不覆蓋剪貼簿
+
+-- ── 滑鼠水平捲動 ────────────────────────────────────────────────────
+-- Alt+滾輪 = 左右捲動，轉成內建的 <ScrollWheelLeft/Right>，捲動量由 'mousescroll' 的 hor 決定。
+-- 不用 Shift+滾輪：Windows Terminal / WezTerm 預設按住 Shift 時滑鼠事件留給終端機做選取，送不進 nvim。
+for _, mode in ipairs({ "n", "v", "i" }) do
+  map(mode, "<M-ScrollWheelUp>", "<ScrollWheelLeft>", opts)
+  map(mode, "<M-ScrollWheelDown>", "<ScrollWheelRight>", opts)
+end
